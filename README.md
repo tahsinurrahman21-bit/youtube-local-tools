@@ -9,6 +9,8 @@ Everything runs **on your own computer**, with no cloud service, no API key and 
 | **YouTube Screenshots to PDF** | One `.pdf` with a screenshot every *N* seconds from each video, a title page per video and optional time captions under each image. |
 | **YouTube Local Transcriber** (bonus) | One timestamped `.txt` transcript for a whole list of videos, using the open-source Whisper speech model on your CPU or NVIDIA GPU. |
 
+![YouTube Screenshots to PDF app window](docs/screenshot.png)
+
 > **Download:** get the latest `YouTubeLocalTools-…-Windows-Setup.zip` from the [**Releases page**](../../releases/latest).
 
 ---
@@ -27,6 +29,7 @@ Everything runs **on your own computer**, with no cloud service, no API key and 
 - [Privacy and responsible use](#privacy-and-responsible-use)
 - [For developers](#for-developers)
 - [Packaging and releases](#packaging-and-releases)
+- [Ongoing maintenance](#ongoing-maintenance)
 - [License](#license)
 
 ---
@@ -255,6 +258,16 @@ The per-app `README.md` files cover each app's internals in detail.
 The setup zip is about 100 KB, and the end result is the same: users never touch Python or a terminal.
 
 Maintainers: see [`docs/RELEASING.md`](docs/RELEASING.md) for how to build and publish a release.
+
+---
+
+## Ongoing maintenance
+
+Notes for the maintainer:
+
+- **When YouTube breaks downloads** (this happens every few months), bump the `yt-dlp` version in `bootstrap/install.py` and publish a new release. Until then, users can update yt-dlp themselves; see [Updating](#updating).
+- **To release a new version:** edit, commit and push in GitHub Desktop. Then on GitHub go to **Releases → Draft a new release**, create a new tag such as `v1.2.0`, and click **Publish release**. The setup zip is built and attached automatically by the [release workflow](.github/workflows/release.yml), usually within a minute or two. Full checklist: [`docs/RELEASING.md`](docs/RELEASING.md).
+- **Expect a Windows warning for some users.** Windows may show *"Windows protected your PC"* because the scripts aren't code-signed. The [troubleshooting table](#troubleshooting) explains how to get past it. Removing the warning entirely would need a paid code-signing certificate.
 
 ---
 
