@@ -19,6 +19,8 @@ param(
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 } catch {}
+# install.py and uv print UTF-8; decode and display it as UTF-8 so text is not garbled.
+try { [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false); $OutputEncoding = [Console]::OutputEncoding } catch {}
 
 $Here = Split-Path -Parent $MyInvocation.MyCommand.Path      # ...\bootstrap
 $Source = Split-Path -Parent $Here                            # repo or extracted release

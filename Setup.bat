@@ -1,13 +1,15 @@
 @echo off
 setlocal
 title YouTube Local Tools setup
-cd /d "%~dp0"
-if not exist "%~dp0bootstrap\setup.ps1" (
+rem Remember this script's own folder before changing directory (works when double-clicked or called from elsewhere).
+set "HERE=%~dp0"
+cd /d "%HERE%"
+if not exist "%HERE%bootstrap\setup.ps1" (
     echo bootstrap\setup.ps1 is missing. Extract the WHOLE zip file first, then run Setup.bat again.
     pause
     exit /b 1
 )
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0bootstrap\setup.ps1" %*
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%HERE%bootstrap\setup.ps1" %*
 set RESULT=%ERRORLEVEL%
 echo.
 if not "%RESULT%"=="0" (
