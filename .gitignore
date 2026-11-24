@@ -1,0 +1,82 @@
+# =====================================================================
+# YouTube Local Tools - .gitignore
+#
+# This folder can also be a *live installation* (runtime\, tools\, data\,
+# settings\ ... created by Setup). To keep gigabytes of binaries and any
+# personal data out of Git, EVERYTHING at the top level is ignored by
+# default and only the real project source is re-included below.
+# =====================================================================
+/*
+
+# ---- Project source that SHOULD be published ------------------------
+!/.gitignore
+!/.gitattributes
+!/.github/
+!/README.md
+!/LICENSE
+!/THIRD-PARTY-NOTICES.txt
+!/Setup.bat
+!/apps/
+!/bootstrap/
+!/scripts/
+!/docs/
+
+# ---- Generated or third-party files inside re-included folders -------
+# uv.exe / uvw.exe / uvx.exe are downloaded (checksum-verified) by Setup.
+/bootstrap/*.exe
+/bootstrap/*.part
+# apps.zip is built from apps\ by Setup or scripts\build_release.py.
+/bootstrap/apps.zip
+# Portable FFmpeg / Deno copies for the per-app developer workflow.
+/apps/*/tools/
+
+# ---- Python caches, virtual environments and build output ------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+env/
+build/
+dist/
+*.spec
+*.egg-info/
+
+# ---- User data: settings, logs, outputs (may contain local paths,
+#      Windows user names, video titles and URLs) -----------------------
+*.log
+settings.json
+gpu-runtime.json
+installation.json
+youtube_transcripts*.txt
+youtube_screenshots*.pdf
+.ytt-work-*/
+
+# ---- Media and model caches -----------------------------------------
+*.mp4
+*.mkv
+*.webm
+*.m4a
+*.mp3
+*.opus
+*.ogg
+*.flac
+*.wav
+models--*/
+CACHEDIR.TAG
+
+# ---- Secrets (none are used by this project; guard anyway) ----------
+.env
+.env.*
+*.pem
+*.key
+cookies.txt
+*cookies*.txt
+
+# ---- OS / editor clutter --------------------------------------------
+*.lnk
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

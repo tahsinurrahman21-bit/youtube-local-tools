@@ -1,0 +1,24 @@
+YouTube Local Tools uses third-party software downloaded from its official distributors during setup.
+
+Python: PSF license, https://www.python.org/psf/license/
+uv: MIT / Apache-2.0, https://github.com/astral-sh/uv
+PySide6 / Qt: LGPLv3 / GPLv3 / commercial, https://www.qt.io/licensing/open-source-lgpl-obligations
+The installed Python environment keeps these libraries separate and replaceable. Their license files remain in the packages.
+yt-dlp: Unlicense (some dependencies have separate licenses), https://github.com/yt-dlp/yt-dlp
+yt-dlp-ejs: Unlicense, https://github.com/yt-dlp/ejs
+Deno: MIT, https://github.com/denoland/deno
+imageio-ffmpeg: BSD-2-Clause wrapper; its FFmpeg binary is GPL, https://github.com/imageio/imageio-ffmpeg
+FFmpeg and codec sources/build instructions: https://github.com/imageio/imageio-binaries and https://ffmpeg.org
+The setup downloads the original binary wheel; its notices are retained in imageio_ffmpeg and package metadata.
+Pillow: HPND and dependency licenses, https://python-pillow.github.io/
+faster-whisper: MIT, https://github.com/SYSTRAN/faster-whisper
+CTranslate2: MIT, https://github.com/OpenNMT/CTranslate2
+Whisper: MIT, https://github.com/openai/whisper
+MLX / mlx-whisper: MIT, https://github.com/ml-explore/mlx and https://github.com/ml-explore/mlx-examples
+NVIDIA CUDA/cuDNN libraries: NVIDIA proprietary licenses retained in the installed nvidia package metadata.
+https://docs.nvidia.com/cuda/eula/index.html
+https://docs.nvidia.com/deeplearning/cudnn/backend/latest/reference/eula.html
+Other transitive dependencies retain their own license and copyright files in runtime/env.
+
+The small setup files contain our application source and installer, not the NVIDIA or FFmpeg binaries.
+Installed dependency versions are recorded in installed-versions.txt.

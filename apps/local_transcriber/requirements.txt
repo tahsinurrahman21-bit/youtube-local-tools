@@ -1,0 +1,5 @@
+PySide6>=6.8,<7
+yt-dlp[default]>=2026.8.19
+faster-whisper==1.2.1
+ctranslate2>=4.5,<5
+psutil>=6,<8
